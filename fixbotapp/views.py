@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.views import APIView
+from rest_framework.views import APIView 
 from .serializers import TelemetricSerializer
 from .models import TelemetricModel
 from rest_framework import generics
@@ -7,16 +7,14 @@ from django.http import Http404
 from rest_framework.response import Response
 from rest_framework import status
 
-# class TelemetricList(generics.ListAPIView):
-#     queryset = TelemetricModel.objects.all()
-#     serializer_class = TelemetricSerializer
 
-
+#this class is used to pull all data
 class TelemetricDetail(generics.ListAPIView):
     queryset = TelemetricModel.objects.all()
     serializer_class = TelemetricSerializer
 
 
+#this class is used to retrieve, update and delete a single data.
 class TelemetricModelDetail(APIView):
     """
     Retrieve, update or delete a TelemetricModel instance.
@@ -45,6 +43,7 @@ class TelemetricModelDetail(APIView):
         TelemetricModel.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+#this class is used to post data
 class TelemetricPost(APIView):
     """
     post a TelemetricModel instance.

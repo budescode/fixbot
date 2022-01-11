@@ -1,5 +1,6 @@
 from django.db import models
 
+#the model for the telemetric data
 class TelemetricModel(models.Model):
     temperature = models.CharField(max_length=20)
     car_speed = models.CharField(max_length=20)
